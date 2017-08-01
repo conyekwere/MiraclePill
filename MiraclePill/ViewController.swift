@@ -13,6 +13,11 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBOutlet weak var statePicker: UIPickerView!
     @IBOutlet weak var statePickerBtn: UIButton!
     
+    @IBOutlet weak var buyBtn: UIButton!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var zipLabel: UILabel!
+    @IBOutlet weak var zipInput: UITextField!
+    @IBOutlet weak var countryInput: UITextField!
     let states = ["Alaska","Arkansas","Alabama","California","Maine","New York"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,12 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBAction func stateBtnPressed(_ sender: Any) {
         
         statePicker.isHidden = false
+        zipInput.isHidden = true
+         countryInput.isHidden = true
+        zipLabel.isHidden = true
+        countryLabel.isHidden = true
+          buyBtn.isHidden = true
+        
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -46,6 +57,12 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statePickerBtn.setTitle(states[row], for: UIControlState.normal)
         statePicker.isHidden = true
+        
+        zipInput.isHidden = false
+        countryInput.isHidden = false
+        zipLabel.isHidden = false
+        countryLabel.isHidden = false
+          buyBtn.isHidden = false
     }
 }
 
